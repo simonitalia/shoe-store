@@ -10,6 +10,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.udacity.shoestore.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login" >
+    </fragment>
 </navigation>
