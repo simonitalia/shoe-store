@@ -1,6 +1,5 @@
 package com.udacity.shoestore.ui.login
 
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
@@ -13,7 +12,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.udacity.shoestore.R
@@ -38,33 +36,33 @@ class LoginFragment : Fragment() {
         val usernameEditText = view.findViewById<EditText>(R.id.username)
         val passwordEditText = view.findViewById<EditText>(R.id.password)
         val loginButton = view.findViewById<Button>(R.id.signIn)
-        val loadingProgressBar = view.findViewById<ProgressBar>(R.id.loading)
+//        val loadingProgressBar = view.findViewById<ProgressBar>(R.id.loading)
 
-        loginViewModel.loginFormState.observe(this,
-                Observer { loginFormState ->
-                    if (loginFormState == null) {
-                        return@Observer
-                    }
-                    loginButton.isEnabled = loginFormState.isDataValid
-                    loginFormState.usernameError?.let {
-                        usernameEditText.error = getString(it)
-                    }
-                    loginFormState.passwordError?.let {
-                        passwordEditText.error = getString(it)
-                    }
-                })
+//        loginViewModel.loginFormState.observe(viewLifecycleOwner,
+//                Observer { loginFormState ->
+//                    if (loginFormState == null) {
+//                        return@Observer
+//                    }
+//                    loginButton.isEnabled = loginFormState.isDataValid
+//                    loginFormState.usernameError?.let {
+//                        usernameEditText.error = getString(it)
+//                    }
+//                    loginFormState.passwordError?.let {
+//                        passwordEditText.error = getString(it)
+//                    }
+//                })
 
-        loginViewModel.loginResult.observe(this,
-                Observer { loginResult ->
-                    loginResult ?: return@Observer
-                    loadingProgressBar.visibility = View.GONE
-                    loginResult.error?.let {
-                        showLoginFailed(it)
-                    }
-                    loginResult.success?.let {
-                        updateUiWithUser(it)
-                    }
-                })
+//        loginViewModel.loginResult.observe(viewLifecycleOwner,
+//                Observer { loginResult ->
+//                    loginResult ?: return@Observer
+////                    loadingProgressBar.visibility = View.GONE
+//                    loginResult.error?.let {
+//                        showLoginFailed(it)
+//                    }
+//                    loginResult.success?.let {
+//                        updateUiWithUser(it)
+//                    }
+//                })
 
         val afterTextChangedListener = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
@@ -95,7 +93,7 @@ class LoginFragment : Fragment() {
         }
 
         loginButton.setOnClickListener {
-            loadingProgressBar.visibility = View.VISIBLE
+//            loadingProgressBar.visibility = View.VISIBLE
             loginViewModel.login(
                     usernameEditText.text.toString(),
                     passwordEditText.text.toString()
