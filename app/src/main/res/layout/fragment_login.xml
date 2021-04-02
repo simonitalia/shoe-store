@@ -56,19 +56,19 @@
 
         <Button
             android:id="@+id/signIn"
+            android:text="@string/action_sign_in_short"
             style="@android:style/Widget.DeviceDefault.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="@string/action_sign_in_short"
             app:layout_constraintEnd_toStartOf="@id/register" />
 
         <Button
             android:id="@+id/register"
+            android:text="@string/action_register"
             style="@android:style/Widget.DeviceDefault.Button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/action_register" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
