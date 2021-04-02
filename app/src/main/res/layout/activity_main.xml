@@ -27,18 +27,7 @@
                     app:popupTheme="@style/AppTheme.PopupOverlay" />
             </com.google.android.material.appbar.AppBarLayout>
 
-            <!-- Main navigation Host fragment Container-->
-<!--            <androidx.fragment.app.FragmentContainerView-->
-<!--                android:id="@+id/mainNavHostFragment"-->
-<!--                android:name="androidx.navigation.fragment.NavHostFragment"-->
-<!--                app:navGraph="@navigation/navigation"-->
-<!--                app:defaultNavHost="true"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/appBarContainer" />-->
-
+            <!-- Main Nav Host Fragment-->
             <fragment
                 android:id="@+id/mainActivityNavHostFragment"
                 android:name="androidx.navigation.fragment.NavHostFragment"
