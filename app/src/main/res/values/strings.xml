@@ -3,8 +3,11 @@
     <!-- Strings related to login -->
     <string name="action_sign_in">Sign in or Register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome!"</string>
     <string name="action_register">Register</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
+
+    <!-- Strings related to welcome -->
+    <string name="welcome_heading">Shoe Store</string>
+    <string name="welcome_text">We don’t try to be anything but who we are. We are an avenue for you to tell your story whether you’re a trend setter, trend follower or an individual. We value your ability to create your own personal style.\n\nHousing an extensive collection of iconic global brands, we pride ourselves on stocking the latest and greatest footwear and apparel.\n\nOur ranges are carefully selected so you can find a treasured iconic style or a newly engineered silhouette.</string>
 </resources>
