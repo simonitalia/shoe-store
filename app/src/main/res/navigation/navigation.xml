@@ -24,5 +24,10 @@
         android:label="@string/welcome"
         tools:layout="@layout/fragment_welcome" >
     </fragment>
+    <fragment
+        android:id="@+id/instructionsFragment"
+        android:name="com.udacity.shoestore.InstructionsFragment"
+        android:label="@string/instructions"
+        tools:layout="@layout/fragment_instructions" />
 
 </navigation>

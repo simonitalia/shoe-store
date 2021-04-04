@@ -7,5 +7,5 @@
 
     <item
         android:id="@+id/instructionsFragment"
-        android:title="@string/instructions_header" />
+        android:title="@string/instructions" />
 </menu>

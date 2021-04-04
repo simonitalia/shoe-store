@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="@string/welcome"
+            android:text="@string/instructions"
             android:textStyle="bold" />
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/fragment_vertical_margin_48dp"
-            android:text="@string/welcome_text" />
+            android:text="@string/placeholder_text" />
 
     </LinearLayout>
 </ScrollView>

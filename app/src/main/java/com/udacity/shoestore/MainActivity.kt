@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         //Hook up the navigation UI up to the navigation view.
         NavigationUI.setupWithNavController(binding.navView, navigationController)
 
+        //Set app drawer listener
         appDrawerListener(navigationController)
 
         Timber.plant(Timber.DebugTree())
