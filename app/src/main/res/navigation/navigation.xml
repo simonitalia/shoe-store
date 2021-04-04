@@ -3,22 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    android:label="@string/action_sign_in"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/loginFragment"
+    android:label="@string/shoe_store">
 
     <!-- Login Fragment  -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.udacity.shoestore.LoginFragment"
-        android:label="LoginFragment"
-        tools:layout="@layout/fragment_login" >
+        android:label="@string/action_sign_in"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
     </fragment>
+
+    <!-- Welcome Fragment  -->
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.udacity.shoestore.WelcomeFragment"
-        android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" />
+        android:label="@string/welcome"
+        tools:layout="@layout/fragment_welcome" >
+    </fragment>
+
 </navigation>
