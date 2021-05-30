@@ -1,12 +1,14 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.screens
 
 import android.os.Bundle
-import android.view.*
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
-import com.udacity.shoestore.databinding.FragmentLoginBinding
-import kotlinx.android.synthetic.main.activity_main.*
+import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.FragmentInstructionsBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -15,10 +17,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
+ * Use the [InstructionsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class LoginFragment : Fragment() {
+class InstructionsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,23 +37,15 @@ class LoginFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        val binding: FragmentLoginBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        val binding: FragmentInstructionsBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_instructions, container, false)
 
-        // set onClick listener for Button
-        binding.signIn.setOnClickListener (
+        // set onClick listener for CTA button
+//        binding.ctaButton.setOnClickListener (
+//
+//            //get an instance of the Navigation Controller, and set the onClickListener
+//            Navigation.createNavigateOnClickListener(R.id."action_welcomeFragment_to_instructionsFragment")
+//        )
 
-            //get an instance of the Navigation Controller, and set the onClickListener
-            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment)
-        )
-
-        binding.register.setOnClickListener (
-
-            //get an instance of the Navigation Controller, and set the onClickListener
-            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment)
-        )
-
-        //show options menu
-        setHasOptionsMenu(true)
         return binding.root //contains root of the layout just inflated above
     }
 
@@ -62,16 +56,16 @@ class LoginFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
+         * @return A new instance of fragment InstructionsFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                InstructionsFragment().apply {
+                    arguments = Bundle().apply {
+                        putString(ARG_PARAM1, param1)
+                        putString(ARG_PARAM2, param2)
+                    }
                 }
-            }
     }
 }
