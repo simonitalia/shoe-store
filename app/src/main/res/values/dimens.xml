@@ -4,4 +4,5 @@
     <dimen name="fragment_vertical_margin">16dp</dimen>
     <dimen name="fragment_horizontal_margin_48dp">48dp</dimen>
     <dimen name="fragment_vertical_margin_48dp">48dp</dimen>
+    <dimen name="fragment_top_margin_16dp">16dp</dimen>
 </resources>

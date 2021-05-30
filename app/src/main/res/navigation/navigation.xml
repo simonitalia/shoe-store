@@ -23,6 +23,9 @@
         android:name="com.udacity.shoestore.WelcomeFragment"
         android:label="@string/welcome"
         tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_instructionsFragment"
+            app:destination="@id/instructionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/instructionsFragment"

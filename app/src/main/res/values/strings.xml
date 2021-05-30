@@ -12,4 +12,5 @@
     <string name="welcome_text">We don’t try to be anything but who we are. We are an avenue for you to tell your story whether you’re a trend setter, trend follower or an individual. We value your ability to create your own personal style.\n\nHousing an extensive collection of iconic global brands, we pride ourselves on stocking the latest and greatest footwear and apparel.\n\nOur ranges are carefully selected so you can find a treasured iconic style or a newly engineered silhouette.</string>
     <string name="instructions">Instructions</string>
     <string name="placeholder_text">Lorem Ipsum</string>
+    <string name="ctaButton"><![CDATA[Next >]]></string>
 </resources>
