@@ -5,6 +5,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
