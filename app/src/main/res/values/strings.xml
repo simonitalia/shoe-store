@@ -13,4 +13,7 @@
     <string name="instructions">Instructions</string>
     <string name="placeholder_text">Lorem Ipsum</string>
     <string name="ctaButton"><![CDATA[Next >]]></string>
+    <string name="itemImageContentDescription">Shoe Image</string>
+    <string name="itemName">Name</string>
+    <string name="itemDescription">Description</string>
 </resources>
