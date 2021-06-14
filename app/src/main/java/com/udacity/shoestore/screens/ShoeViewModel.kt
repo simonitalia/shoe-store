@@ -7,7 +7,7 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeViewModel: ViewModel() {
 
-    // Create a list of all desserts, in order of when they start being produced
+    // Create a list of all shoes
     private val shoeList = listOf(
         Shoe(
             "Casual High Top", 6.0, "Converse", "Black high top", listOf("converse")
