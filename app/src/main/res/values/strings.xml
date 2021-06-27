@@ -1,19 +1,27 @@
 <resources>
     <string name="shoe_store">Shoe Store</string>
-    <!-- Strings related to login -->
+    <!-- login -->
     <string name="action_sign_in">Sign in or Register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_register">Register</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
 
-    <!-- Strings related to welcome -->
+    <!-- welcome -->
     <string name="welcome">Welcome</string>
     <string name="welcome_text">We don’t try to be anything but who we are. We are an avenue for you to tell your story whether you’re a trend setter, trend follower or an individual. We value your ability to create your own personal style.\n\nHousing an extensive collection of iconic global brands, we pride ourselves on stocking the latest and greatest footwear and apparel.\n\nOur ranges are carefully selected so you can find a treasured iconic style or a newly engineered silhouette.</string>
     <string name="instructions">Instructions</string>
     <string name="placeholder_text">Lorem Ipsum</string>
-    <string name="ctaButton"><![CDATA[Next >]]></string>
-    <string name="itemImageContentDescription">Shoe Image</string>
-    <string name="itemName">Name</string>
-    <string name="itemDescription">Description</string>
+    <string name="next"><![CDATA[Next >]]></string>
+
+    <!-- shoe list -->
+    <string name="item_image_content_description">Shoe Image</string>
+
+    <!-- shoe details -->
+    <string name="shoe_name">Name</string>
+    <string name="shoe_description">Description</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="shoe_company">Shoe Company</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>

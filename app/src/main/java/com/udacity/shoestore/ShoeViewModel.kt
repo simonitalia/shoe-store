@@ -11,5 +11,4 @@ class ShoeViewModel: ViewModel() {
     private var _shoeList = MutableLiveData<MutableList<Shoe>>()
     val shoeList : LiveData<MutableList<Shoe>>
         get() = _shoeList //externally accessible getter
-
 }

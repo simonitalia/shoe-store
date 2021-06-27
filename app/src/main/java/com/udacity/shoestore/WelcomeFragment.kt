@@ -39,7 +39,7 @@ class WelcomeFragment : Fragment() {
         val binding: FragmentWelcomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
 
         // set onClick listener for CTA button
-        binding.ctaButton.setOnClickListener (
+        binding.nextButton.setOnClickListener (
 
             //get an instance of the Navigation Controller, and set the onClickListener
             Navigation.createNavigateOnClickListener(R.id.action_welcomeFragment_to_instructionsFragment)

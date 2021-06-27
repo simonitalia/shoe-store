@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.navigation.InstructionsFragment">
@@ -18,7 +17,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/instructionsHeader"
+                android:id="@+id/instructions_header"
                 style="@style/TextAppearance.AppCompat.Headline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,7 +26,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/instructionsText"
+                android:id="@+id/instructions"
                 style="@style/TextAppearance.AppCompat.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,5 +34,5 @@
                 android:text="@string/placeholder_text" />
 
         </LinearLayout>
-</ScrollView>
+    </ScrollView>
 </layout>

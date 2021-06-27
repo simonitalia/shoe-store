@@ -10,4 +10,5 @@
     <dimen name="padding_16dp">16dp</dimen>
     <dimen name="layoutMargin_8dp">8dp</dimen>
     <dimen name="layoutMargin_16dp">16dp</dimen>
+    <dimen name="cta_button_width">150dp</dimen>
 </resources>
