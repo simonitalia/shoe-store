@@ -1,13 +1,16 @@
 package com.udacity.shoestore
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+
 
 class ShoeListFragment: Fragment() {
 
@@ -32,15 +35,36 @@ class ShoeListFragment: Fragment() {
         //make the data binding lifecycle aware
         binding.setLifecycleOwner(this)
 
+        //create first item (this is an example item)
+        createShoeItem("Shoe Name", "Shoe Company", 6, "Shoe Description")
+
+
         //show options menu
         setHasOptionsMenu(true)
         return binding.root //contains root of the layout just inflated above
     }
 
-    fun setViews() {
+    private fun setViews() {
 
 
 
+    }
+
+    private fun createShoeItem(name: String, company: String, size: Int, description: String) {
+
+        //set image view (all shoes have same image)
+        val resource = getShoeImageResource()
+        binding.shoeImage.setImageDrawable(resource)
+
+       //set text views
+        binding.shoeName.text = name
+        binding.shoeCompany.text = company
+        binding.shoeSize.text = size.toString()
+        binding.shoeDescription.text = description
+    }
+
+    private fun getShoeImageResource(): Drawable? {
+        return context?.resources?.let { ResourcesCompat.getDrawable(it, R.drawable.adidas, null) }
     }
 
 }

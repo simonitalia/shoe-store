@@ -53,18 +53,18 @@
                             android:text="@string/shoe_name" />
 
                         <TextView
-                            android:id="@+id/shoe_size"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/layoutMargin_16dp"
-                            tools:text="@string/shoe_size" />
-
-                        <TextView
                             android:id="@+id/shoe_company"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/layoutMargin_16dp"
                             tools:text="@string/shoe_company" />
+
+                        <TextView
+                            android:id="@+id/shoe_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/layoutMargin_16dp"
+                            tools:text="@string/shoe_size" />
 
                         <TextView
                             android:id="@+id/shoe_description"
