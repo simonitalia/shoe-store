@@ -19,10 +19,12 @@ private const val ARG_PARAM2 = "param2"
  * Use the [InstructionsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class InstructionsFragment : Fragment() {
+class InstructionsFragment: Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var binding: FragmentInstructionsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +38,9 @@ class InstructionsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        val binding: FragmentInstructionsBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_instructions, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_instructions, container, false)
 
-        // set onClick listener for CTA button
+        // set onClick listener for next button
         binding.nextButton.setOnClickListener (
 
             //get an instance of the Navigation Controller, and set the onClickListener

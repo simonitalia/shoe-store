@@ -24,6 +24,8 @@ class WelcomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: FragmentWelcomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -36,9 +38,9 @@ class WelcomeFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        val binding: FragmentWelcomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
 
-        // set onClick listener for CTA button
+        // set onClick listener for next button
         binding.nextButton.setOnClickListener (
 
             //get an instance of the Navigation Controller, and set the onClickListener

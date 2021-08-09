@@ -27,4 +27,5 @@
     <string name="shoe_company">Shoe Company</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="add_shoe_fab_content_description">Add Shoe Button</string>
 </resources>

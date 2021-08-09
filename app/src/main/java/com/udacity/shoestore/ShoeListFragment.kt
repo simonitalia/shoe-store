@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 
 
@@ -34,6 +35,13 @@ class ShoeListFragment: Fragment() {
 
         //make the data binding lifecycle aware
         binding.setLifecycleOwner(this)
+
+        // set onClick listener for fab button
+        binding.addShoeButton.setOnClickListener (
+
+            //get an instance of the Navigation Controller, and set the onClickListener
+            Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeItemDetailsFragment)
+        )
 
         //create first item (this is an example item)
         createShoeItem("Shoe Name", "Shoe Company", 6, "Shoe Description")
