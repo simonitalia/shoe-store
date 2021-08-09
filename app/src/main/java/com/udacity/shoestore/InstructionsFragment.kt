@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import com.udacity.shoestore.databinding.FragmentInstructionsBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -38,11 +39,11 @@ class InstructionsFragment : Fragment() {
         val binding: FragmentInstructionsBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_instructions, container, false)
 
         // set onClick listener for CTA button
-//        binding.ctaButton.setOnClickListener (
-//
-//            //get an instance of the Navigation Controller, and set the onClickListener
-//            Navigation.createNavigateOnClickListener(R.id."action_welcomeFragment_to_instructionsFragment")
-//        )
+        binding.nextButton.setOnClickListener (
+
+            //get an instance of the Navigation Controller, and set the onClickListener
+            Navigation.createNavigateOnClickListener(R.id.action_instructionsFragment_to_shoeListFragment)
+        )
 
         return binding.root //contains root of the layout just inflated above
     }
