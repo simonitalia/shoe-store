@@ -31,7 +31,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/fragment_vertical_margin_48dp"
-                android:text="@string/placeholder_text" />
+                android:text="@string/instructions_text" />
+
+            <Button
+                android:id="@+id/next_button"
+                android:layout_width="@dimen/cta_button_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/fragment_top_margin_16dp"
+                android:text="@string/next" />
 
         </LinearLayout>
     </ScrollView>
