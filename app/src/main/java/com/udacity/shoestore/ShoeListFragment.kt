@@ -2,14 +2,14 @@ package com.udacity.shoestore
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 
 
@@ -43,20 +43,37 @@ class ShoeListFragment: Fragment() {
             Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeItemDetailsFragment)
         )
 
+        //show overflow menu (with login fragment as destination)
+        setHasOptionsMenu(true)
+
+
+
         //create first item (this is an example item)
         createShoeItem("Shoe Name", "Shoe Company", 6, "Shoe Description")
 
 
-        //show options menu
-        setHasOptionsMenu(true)
+
+
+
+
+
         return binding.root //contains root of the layout just inflated above
     }
 
-    private fun setViews() {
+    //override method for overflow menu (with login fragment as destination)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.overflow_menu, menu)
+    }
 
+    //override method that handles navigation to destination fragment
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item, requireView().   findNavController())
+                || super.onOptionsItemSelected(item)
 
 
     }
+
 
     private fun createShoeItem(name: String, company: String, size: Int, description: String) {
 
