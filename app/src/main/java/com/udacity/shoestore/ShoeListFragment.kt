@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.models.Shoe
 
 
 class ShoeListFragment: Fragment() {
@@ -33,9 +34,6 @@ class ShoeListFragment: Fragment() {
         //connect data variable from layout / fragment file to viewModel (ViewModel data binding)
         binding.shoeViewModel = viewModel
 
-        //make the data binding lifecycle aware
-        binding.setLifecycleOwner(this)
-
         // set onClick listener for fab button
         binding.addShoeButton.setOnClickListener (
 
@@ -46,15 +44,8 @@ class ShoeListFragment: Fragment() {
         //show overflow menu (with login fragment as destination)
         setHasOptionsMenu(true)
 
-
-
-        //create first item (this is an example item)
-        createShoeItem("Shoe Name", "Shoe Company", 6, "Shoe Description")
-
-
-
-
-
+        //handle safe args passed in (from shoe item details fragment
+        var args = ShoeListFragmentArgs.fromBundle(requireArguments())
 
 
         return binding.root //contains root of the layout just inflated above
@@ -70,12 +61,13 @@ class ShoeListFragment: Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView().   findNavController())
                 || super.onOptionsItemSelected(item)
-
-
     }
 
+    private fun createShoeItem(name: String, company: String, size: String, description: String) {
 
-    private fun createShoeItem(name: String, company: String, size: Int, description: String) {
+        //create shoe object and append to shoeList
+        val shoe = Shoe(name, company, size, description)
+//        viewModel._shoeList.add(shoe)
 
         //set image view (all shoes have same image)
         val resource = getShoeImageResource()
@@ -84,7 +76,7 @@ class ShoeListFragment: Fragment() {
        //set text views
         binding.shoeName.text = name
         binding.shoeCompany.text = company
-        binding.shoeSize.text = size.toString()
+        binding.shoeSize.text = size
         binding.shoeDescription.text = description
     }
 

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentInstructionsBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -41,11 +42,17 @@ class InstructionsFragment: Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_instructions, container, false)
 
         // set onClick listener for next button
-        binding.nextButton.setOnClickListener (
+        binding.nextButton.setOnClickListener { view ->
 
-            //get an instance of the Navigation Controller, and set the onClickListener
-            Navigation.createNavigateOnClickListener(R.id.action_instructionsFragment_to_shoeListFragment)
-        )
+            //on navigation shor list fragment,, pass a sample shoe for the list
+            view.findNavController()
+                .navigate(InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment(
+                    "Shoe Name",
+                    "Shoe Company",
+                    "0",
+                    "This is an example shoe"
+                ))
+        }
 
         return binding.root //contains root of the layout just inflated above
     }

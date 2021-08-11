@@ -46,8 +46,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:ems="10"
-                            android:inputType="text"
-                            android:hint="Enter Shoe Size"/>
+                            android:hint="Enter Shoe Size"
+                            android:inputType="number" />
 
                         <EditText
                             android:id="@+id/edit_text_shoe_description"
