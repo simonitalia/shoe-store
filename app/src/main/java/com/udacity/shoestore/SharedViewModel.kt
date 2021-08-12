@@ -9,7 +9,7 @@ import com.udacity.shoestore.models.Shoe
 
 class SharedViewModel: ViewModel() {
 
-    // shoe list live data
+    // shoe list live data collection
     private val _shoeList = MutableLiveData<MutableList<Shoe>>()
     val shoeList: LiveData<MutableList<Shoe>>
         get() = _shoeList //externally accessible getter

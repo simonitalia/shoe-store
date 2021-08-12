@@ -23,6 +23,9 @@ class ShoeItemDetailsFragment: Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_item_details, container, false)
 
+        //establish connection between layout / fragment ui file (data variable) and viewModel object
+        binding.sharedViewModel = viewModel
+
         //cancel button click listener
         binding.cancelButton.setOnClickListener {view ->
 

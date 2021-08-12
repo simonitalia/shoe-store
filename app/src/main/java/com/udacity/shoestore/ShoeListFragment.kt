@@ -1,8 +1,10 @@
 package com.udacity.shoestore
 
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.*
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
@@ -26,12 +28,6 @@ class ShoeListFragment: Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
 
-        //create ViewModel Instance with view model provider
-//        viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
-
-        //establish connection between layout / fragment ui file (data variable) and viewModel
-        binding.sharedViewModel = viewModel
-
         // set onClick listener for fab button
         binding.addShoeButton.setOnClickListener (
 
@@ -39,17 +35,19 @@ class ShoeListFragment: Fragment() {
             Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeItemDetailsFragment)
         )
 
+        //setup list view and adapter
+        val adapter = ShoeListAdapter(this.context, viewModel.shoeList?.value ?: mutableListOf())
+        binding.shoeListView.adapter = adapter
+
         //observer shoe list collection changes and update UI on change
-        viewModel.shoeList.observe(viewLifecycleOwner, { newShoeList ->
-            updateViews(newShoeList) //update views with new shoe list
+        viewModel.shoeList.observe(viewLifecycleOwner, {
+
+            //update list with new shoe list
+            adapter.notifyDataSetChanged()
         })
 
         //show overflow menu (with login fragment as destination)
         setHasOptionsMenu(true)
-
-        //handle safe args passed in (from shoe item details fragment
-        var args = ShoeListFragmentArgs.fromBundle(requireArguments())
-
 
         return binding.root //contains root of the layout just inflated above
     }
@@ -65,22 +63,56 @@ class ShoeListFragment: Fragment() {
         return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
     }
+}
 
-    //update UI
-    private fun updateViews(shoeList: MutableList<Shoe>) {
+class ShoeListAdapter(private val context: Context?,
+                      private val dataSource: MutableList<Shoe>): BaseAdapter() {
 
-        //set image view (all shoes have same image)
-        val resource = getShoeImageResource()
-        binding.shoeImage.setImageDrawable(resource)
+    private val inflater: LayoutInflater
+            = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
-       //set text views
-//        binding.shoeName.text = name
-//        binding.shoeCompany.text = company
-//        binding.shoeSize.text = size
-//        binding.shoeDescription.text = description
+    override fun getCount(): Int {
+        return dataSource.size
     }
 
+    override fun getItem(position: Int): Any {
+        return dataSource[position]
+    }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+
+        // Get view for row item
+        val rowView = inflater.inflate(R.layout.fragment_shoe_list_item, parent, false)
+
+        //set rowView text views
+        val shoeNameTextView = rowView.findViewById(R.id.shoe_name) as TextView
+        val shoeCompanyTextView = rowView.findViewById(R.id.shoe_company) as TextView
+        val shoeSizeTextView = rowView.findViewById(R.id.shoe_size) as TextView
+        val shoeDescriptionTextView = rowView.findViewById(R.id.shoe_description) as TextView
+
+        //set data for text views
+        val shoeItem = getItem(position) as Shoe
+
+        shoeNameTextView.text = shoeItem.name
+        shoeCompanyTextView.text = shoeItem.company
+        shoeSizeTextView.text = shoeItem.size
+        shoeDescriptionTextView.text = shoeItem.description
+
+        //set default shoe image
+        val resource = getShoeImageResource()
+        val shoeImageView = rowView.findViewById(R.id.shoe_image) as ImageView
+        shoeImageView.setImageDrawable(resource)
+
+        return rowView
+    }
+
+    //handles retrieving default shoe image
     private fun getShoeImageResource(): Drawable? {
         return context?.resources?.let { ResourcesCompat.getDrawable(it, R.drawable.adidas, null) }
     }
 }
+
