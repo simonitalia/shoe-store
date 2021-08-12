@@ -35,3 +35,7 @@ Once the project files are downloaded, open and run the project using the lastes
 
 None. (All project dependencies have already been included in the project gradel files).
 
+### Licence
+  
+GNU GENERAL PUBLIC LICENSE  
+
