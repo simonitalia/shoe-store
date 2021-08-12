@@ -43,11 +43,30 @@ class ShoeItemDetailsFragment: Fragment() {
         //save button click listener (pass safe args to shoe list fragment)
         binding.saveButton.setOnClickListener { view ->
 
-            //get user input values from edit text fields
-            val name = binding.editTextShoeName.text?.toString() ?: "Name not provided"
-            val company  = binding.editTextShoeCompany.text?.toString() ?: "Company not provided"
-            val size = binding.editTextShoeSize.text?.toString() ?: "0"
-            val description = binding.editTextShoeDescription.text?.toString() ?: "Description not provided"
+            //get user input values from edit text fields (or return default value if empty)
+            val name =
+                if (!binding.editTextShoeName.text.isNullOrBlank()) {
+                         binding.editTextShoeName.text.toString()
+
+                } else { "Shoe Name not provided" }
+
+            val company =
+                if (!binding.editTextShoeCompany.text.isNullOrBlank()) {
+                    binding.editTextShoeCompany.text.toString()
+
+                } else { "Company not provided" }
+
+            val size =
+                if (!binding.editTextShoeSize.text.isNullOrBlank()) {
+                    binding.editTextShoeSize.text.toString()
+
+                } else {  "0" }
+
+            val description =
+                if (!binding.editTextShoeDescription.text.isNullOrBlank()) {
+                    binding.editTextShoeDescription.text.toString()
+
+                } else { "Description not provided" }
 
             val shoeItem = Shoe(name, company, size, description)
 

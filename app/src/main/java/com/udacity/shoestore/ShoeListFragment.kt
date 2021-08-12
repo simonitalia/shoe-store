@@ -36,7 +36,7 @@ class ShoeListFragment: Fragment() {
         )
 
         //setup list view and adapter
-        val adapter = ShoeListAdapter(this.context, viewModel.shoeList?.value ?: mutableListOf())
+        val adapter = ShoeListAdapter(this.context, viewModel.shoeList.value ?: mutableListOf())
         binding.shoeListView.adapter = adapter
 
         //observer shoe list collection changes and update UI on change
@@ -55,7 +55,7 @@ class ShoeListFragment: Fragment() {
     //override method for overflow menu (with login fragment as destination)
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.overflow_menu, menu)
+        inflater.inflate(R.menu.overflow_menu, menu)
     }
 
     //override method that handles navigation to destination fragment
