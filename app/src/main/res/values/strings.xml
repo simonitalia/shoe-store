@@ -29,4 +29,12 @@
     <string name="save">Save</string>
     <string name="add_shoe_fab_content_description">Add Shoe Button</string>
     <string name="logout">Log out</string>
+    <string name="shoe_name_label">Shoe Name</string>
+    <string name="shoe_name_edit_text_hint">Enter Shoe Name</string>
+    <string name="shoe_company_edit_text_hint">Enter Shoe Company</string>
+    <string name="shoe_size_edit_text_hint">Enter Shoe Size</string>
+    <string name="shoe_description_edit_text_hint">Enter Shoe Description</string>
+    <string name="shoe_company_label">Shoe Company</string>
+    <string name="shoe_size_label">Shoe Size</string>
+    <string name="shoe_description_label">Shoe Description</string>
 </resources>
