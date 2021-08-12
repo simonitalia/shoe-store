@@ -6,7 +6,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -16,9 +16,7 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeListFragment: Fragment() {
 
-    //ViewModel instance
-    private lateinit var viewModel: ShoeViewModel
-
+    private val viewModel: SharedViewModel by activityViewModels()
     private lateinit var binding: FragmentShoeListBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -28,11 +26,11 @@ class ShoeListFragment: Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
 
-        //create ViewModel Instance
-        viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
+        //create ViewModel Instance with view model provider
+//        viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
 
-        //connect data variable from layout / fragment file to viewModel (ViewModel data binding)
-        binding.shoeViewModel = viewModel
+        //establish connection between layout / fragment ui file (data variable) and viewModel
+        binding.sharedViewModel = viewModel
 
         // set onClick listener for fab button
         binding.addShoeButton.setOnClickListener (
@@ -40,6 +38,11 @@ class ShoeListFragment: Fragment() {
             //get an instance of the Navigation Controller, and set the onClickListener
             Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeItemDetailsFragment)
         )
+
+        //observer shoe list collection changes and update UI on change
+        viewModel.shoeList.observe(viewLifecycleOwner, { newShoeList ->
+            updateViews(newShoeList) //update views with new shoe list
+        })
 
         //show overflow menu (with login fragment as destination)
         setHasOptionsMenu(true)
@@ -59,29 +62,25 @@ class ShoeListFragment: Fragment() {
 
     //override method that handles navigation to destination fragment
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView().   findNavController())
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
     }
 
-    private fun createShoeItem(name: String, company: String, size: String, description: String) {
-
-        //create shoe object and append to shoeList
-        val shoe = Shoe(name, company, size, description)
-//        viewModel._shoeList.add(shoe)
+    //update UI
+    private fun updateViews(shoeList: MutableList<Shoe>) {
 
         //set image view (all shoes have same image)
         val resource = getShoeImageResource()
         binding.shoeImage.setImageDrawable(resource)
 
        //set text views
-        binding.shoeName.text = name
-        binding.shoeCompany.text = company
-        binding.shoeSize.text = size
-        binding.shoeDescription.text = description
+//        binding.shoeName.text = name
+//        binding.shoeCompany.text = company
+//        binding.shoeSize.text = size
+//        binding.shoeDescription.text = description
     }
 
     private fun getShoeImageResource(): Drawable? {
         return context?.resources?.let { ResourcesCompat.getDrawable(it, R.drawable.adidas, null) }
     }
-
 }

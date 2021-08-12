@@ -7,8 +7,8 @@
 
     <data>
         <variable
-            name="shoeViewModel"
-            type="com.udacity.shoestore.ShoeViewModel" />
+            name="sharedViewModel"
+            type="com.udacity.shoestore.SharedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

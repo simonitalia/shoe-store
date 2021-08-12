@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeItemDetailsBinding
+import com.udacity.shoestore.models.Shoe
 
 class ShoeItemDetailsFragment: Fragment() {
 
+    private val viewModel: SharedViewModel by activityViewModels()
     private lateinit var binding: FragmentShoeItemDetailsBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -39,12 +41,17 @@ class ShoeItemDetailsFragment: Fragment() {
         binding.saveButton.setOnClickListener { view ->
 
             //get user input values from edit text fields
-            val name: String? = binding.editTextShoeName.text?.toString()
-            val company: String?  = binding.editTextShoeCompany.text?.toString()
-            val size: String?  = binding.editTextShoeSize.text?.toString()
-            val description: String? = binding.editTextShoeDescription.text?.toString()
+            val name = binding.editTextShoeName.text?.toString() ?: "Name not provided"
+            val company  = binding.editTextShoeCompany.text?.toString() ?: "Company not provided"
+            val size = binding.editTextShoeSize.text?.toString() ?: "0"
+            val description = binding.editTextShoeDescription.text?.toString() ?: "Description not provided"
 
-            //pass values to shoe list fragment via safe args
+            val shoeItem = Shoe(name, company, size, description)
+
+            //update viewModel with new shoe item
+            viewModel.addShoeItem(shoeItem)
+
+            //navigate to shoe list fragment (and pass values to shoe list fragment via safe args)
             view.findNavController()
                 .navigate(ShoeItemDetailsFragmentDirections.actionShoeItemDetailsFragmentToShoeListFragment(
                     name,
@@ -56,6 +63,4 @@ class ShoeItemDetailsFragment: Fragment() {
 
         return binding.root
     }
-
-
 }
