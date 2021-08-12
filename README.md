@@ -33,7 +33,7 @@ Once the project files are downloaded, open and run the project using the lastes
 
 ### Dependencies
 
-None. (All project dependencies have already been included in the project gradel files).
+None. (All project dependencies are already been included in the project gradle files).
 
 ### Licence
   
