@@ -14,65 +14,81 @@
         android:paddingBottom="@dimen/fragment_vertical_margin_16dp"
         tools:context=".LoginFragment" >
 
-        <EditText
-            android:id="@+id/username"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/fragment_horizontal_margin_16dp"
-            android:layout_marginTop="@dimen/fragment_vertical_margin_16dp"
-            android:layout_marginEnd="@dimen/fragment_horizontal_margin_16dp"
-            android:autofillHints="@string/prompt_email"
-            android:hint="@string/prompt_email"
-            android:inputType="textEmailAddress"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/fragment_horizontal_margin_16dp"
-            android:layout_marginTop="@dimen/fragment_vertical_margin_16dp"
-            android:layout_marginEnd="@dimen/fragment_horizontal_margin_16dp"
-            android:autofillHints="@string/prompt_password"
-            android:hint="@string/prompt_password"
-            android:imeActionLabel="@string/action_sign_in_short"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:selectAllOnFocus="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username" />
-
         <LinearLayout
-            android:id="@+id/loginButtonsLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/fragment_horizontal_margin_48dp"
-            android:layout_marginTop="@dimen/fragment_horizontal_margin_16dp"
-            android:layout_marginEnd="@dimen/fragment_horizontal_margin_48dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/password">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/layoutMargin_8dp"
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/signIn"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/fragment_horizontal_margin_16dp"
-                android:text="@string/action_sign_in_short"
-                app:layout_constraintEnd_toStartOf="@id/register" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/register"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/email_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_label"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:autofillHints="@string/prompt_email"
+                    android:hint="@string/prompt_email"
+                    android:inputType="textEmailAddress"
+                    android:selectAllOnFocus="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/action_register" />
+                android:layout_marginTop="@dimen/fragment_horizontal_margin_16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/password_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_label"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:autofillHints="@string/prompt_password"
+                    android:hint="@string/prompt_password"
+                    android:inputType="textPassword"
+                    android:selectAllOnFocus="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/loginButtonsLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="56dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/signIn"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/action_sign_in_short"
+                    app:layout_constraintEnd_toStartOf="@id/register" />
+
+                <Button
+                    android:id="@+id/register"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="125dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/layoutMargin_16dp"
+                    android:text="@string/action_register" />
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
